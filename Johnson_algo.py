@@ -38,4 +38,6 @@ for time in times:
 answer_right.reverse()
 jobs = answer_left + answer_right
 
-print(jobs)
+import pandas as pd
+df = pd.DataFrame(jobs,columns = ['Job Id','Machine-1 pj','Machine-2 pj'])
+print(df)

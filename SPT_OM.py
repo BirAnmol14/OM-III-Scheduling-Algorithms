@@ -13,14 +13,14 @@ def sort_func(e):
 def print_jobs(jobs,total_f,max_f,total_l,max_l,total_t,max_t,n_t,total_w,max_w):
     print()
     print("SPT")
-    print("********")
-    print("(job, Pj, Dj,Fj,Lj,Tj,Is Tardy?, Wait Time)")
-    for job in jobs:
-        print(job)
-        print()
-    print("********")
-    print("(Total flow, Max Flow [MAKE-SPAN], Total Lateness, Max Lateness, Total Tardiness, Max Tardiness, No of Tardy jobs, Total Wait, Max Wait)")
-    print([total_f,max_f,total_l,max_l,total_t,max_t,n_t,total_w,max_w])
+    print()
+    import pandas as pd
+    import numpy as np
+    df = pd.DataFrame(jobs,columns=["job id", "Pj", "Dj","Fj","Lj","Tj","Is Tardy?", "Wait Time"])
+    print(df)
+    print()
+    df = pd.DataFrame(np.array([total_f,max_f,total_l,max_l,total_t,max_t,n_t,total_w,max_w]).reshape(1,9),columns=["Total flow", "Max Flow [MAKE-SPAN]", "Total Lateness", "Max Lateness", "Total Tardiness", "Max Tardiness", "No of Tardy jobs", "Total Wait", "Max Wait"])
+    print(df.to_string())
     print()
      
 jobs.sort(key=sort_func)

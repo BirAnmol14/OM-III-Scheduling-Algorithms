@@ -27,9 +27,11 @@ while(True):
             swapped = True
     if swapped:        
         selected[ind] = True
-        answer.append(jobs[ind][0])
+        answer.append(jobs[ind][:2])
         jobs = update(jobs,jobs[ind][1])
     else:
         break
     
-print(answer)
+import pandas as pd
+df = pd.DataFrame(answer,columns = ["Job ID","Pj"])
+print(df)
